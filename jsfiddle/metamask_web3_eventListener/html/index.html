@@ -1,10 +1,38 @@
-Listen to Events
-</button>
+<!DOCTYPE html>
+<html lang="en">
 
-<span class="eventResult">
-  
-</span>
-<br />
-<small>
-This is an example of Events from <a href="https://ethereum-blockchain-developer.com">Ethereum-Blockchain-Developer.com</a>
-</small>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="enableMetamask">Enable MetaMask</button>
+    <h2><span class="statusText"></span></h2>
+
+    <input type="text" id="address" placeholder="Contract Address" disabled="true" />
+    <button class="startStopEventListener" disabled="true">
+        Listen to Events
+    </button>
+
+    <span class="eventResult"> </span>
+    <br />
+    <small>
+        This is an example of Events from
+        <a href="https://ethereum-blockchain-developer.com">Ethereum-Blockchain-Developer.com</a>
+    </small>
+
+
+    <!-- Even though we have linked our js file with html but this isn't going to work, 
+    i.e. on clicking enableMetamask button, nothing is going to happen because we won't have
+    windows.etherium environment when we go live from here. so thats why we run this on
+    js.fiddle where in Resources - URL, we can type web3j and set it and then rerun the whole
+    fiddle to connect with metamask to run the event listener functions furthur of js file. -->
+
+    <script
+        src="/Users/adityasingh/Desktop/solidity_remix/jsfiddle/metamask_web3_eventListener/js/index_events.js" charset="UTF-8"></script>
+</body>
+
+</html>
