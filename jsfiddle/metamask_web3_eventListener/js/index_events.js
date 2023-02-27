@@ -212,6 +212,9 @@ async function listenToEvents() {
   //? logs with value x”. We know this event will have 3 topics, which means this logging 
   //? operation will use the LOG3 opcode.
 
+  //! when you change the event TokensSent ( address _to ...) to ( address indexed _to ...)
+  //! your abi array also changes, so now to listen to events, you have to get the new abi array.
+
   //todo: If we filter for certain events, we can do that with JavaScript later on very efficiently:
   contractInstance.getPastEvents("TokensSent", {filter : {_to : ['0x123123123...']}, fromBlock: 0})
   .then((event) => {
