@@ -6,7 +6,7 @@ contract EventExample{
 
     mapping(address => uint) public tokenBalance;
 
-    event TokensSent( address _from, uint _amount );
+    event TokensSent( address indexed _from, uint indexed _amount );
 
     function getAddressBalance() public view returns(uint){
         return tokenBalance[msg.sender];
