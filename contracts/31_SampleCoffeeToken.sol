@@ -29,12 +29,14 @@ contract CoffeeToken is ERC20, AccessControl {
     }
 
     // to mint means to create new tokens.
+    //?  * 10 ** decimals() is done on amount so that it converts to 10^18, since in remix (EVM) it shows in wei
+    //? and we want token price to be in ether.
     function mint(address to, uint256 amount) public onlyRole(MINTER_ROLE) {
-        _mint(to, amount);
+        _mint(to, amount * 10 ** decimals());
     }
 
     function buyOneCoffee() public {
-        _burn(_msgSender(), 1);
+        _burn(_msgSender(), 1 * 10 ** decimals());
         emit CoffeePurchased(_msgSender(), _msgSender());
     }
 
@@ -62,8 +64,8 @@ contract CoffeeToken is ERC20, AccessControl {
     */
 
     function buyOneCoffeeFrom (address account) public {
-        _spendAllowance(account, _msgSender(), 1);
-        _burn(account, 1);
+        _spendAllowance(account, _msgSender(), 1 * 10 ** decimals());
+        _burn(account, 1 * 10 ** decimals());
         emit CoffeePurchased(_msgSender(), account);
     }
 
@@ -76,4 +78,3 @@ contract CoffeeToken is ERC20, AccessControl {
     3. Coffee tokens get burned when the user gets his coffee.
     */
 }
-
